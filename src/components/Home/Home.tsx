@@ -1,4 +1,5 @@
 import { LINES } from "../../lib/lines";
+import { STATIONS } from "../../lib/stations";
 import * as styles from "./Home.css";
 
 export default function Home() {
@@ -10,9 +11,12 @@ export default function Home() {
           <li key={line.id} style={{ color: `${line.colour}` }}>
             {line.name}
             <ul>
-              {line.stations.map((station) => (
-                <li key={station}>{station}</li>
-              ))}
+              {line.stations.map((stationId) => {
+                const shownStation = STATIONS.find(
+                  (station) => station.id === stationId
+                );
+                return <li>{shownStation?.name}</li>;
+              })}
             </ul>
           </li>
         ))}

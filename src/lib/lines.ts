@@ -5,7 +5,7 @@ export const LINES :  Line[] = [
         id : 'jubilee',
         name: 'jubilee',
         colour: '#858f97',
-        stations: ["west-hampstead", "metropolitan"]
+        stations: ["west-hampstead", "finchley-road"]
     },
     {
         id: 'metropolitan',
