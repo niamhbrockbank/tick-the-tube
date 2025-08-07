@@ -6,5 +6,16 @@ interface Props {
 }
 
 export default function Station({ station }: Props) {
-  return <li className={styles.station}>{station?.name}</li>;
+  const visitingOptions = ["visited", "through", "untouched"];
+
+  return (
+    <div className={styles.station}>
+      <li className={styles.stationName}>{station?.name}</li>
+      <select className={styles.visitingOptions}>
+        {visitingOptions.map((v) => (
+          <option>{v}</option>
+        ))}
+      </select>
+    </div>
+  );
 }
