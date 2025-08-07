@@ -1,4 +1,4 @@
-import {globalStyle} from '@vanilla-extract/css'
+import {globalStyle, style} from '@vanilla-extract/css'
 
 globalStyle(':root', {
   fontFamily: 'system-ui, Avenir, Helvetica, Arial, sans-serif',
@@ -41,4 +41,8 @@ globalStyle('button:hover', {
 
 globalStyle('button:focus', {
   outline: '4px auto -webkit-focus-ring-color',
+})
+
+export const borderRadius = style({
+  borderRadius: '8px',
 })
