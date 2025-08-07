@@ -1,4 +1,5 @@
 import type { Station } from "../../lib/types";
+import TrafficLightStatus from "../TrafficLightStatus/TrafficLightStatus";
 import * as styles from "./Station.css";
 
 interface Props {
@@ -16,6 +17,7 @@ export default function Station({ station }: Props) {
           <option>{v}</option>
         ))}
       </select>
+      <TrafficLightStatus />
     </div>
   );
 }
