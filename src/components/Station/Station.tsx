@@ -11,7 +11,11 @@ export default function Station({ station, lineId }: Props) {
   return (
     <div className={styles.station}>
       <li className={styles.stationName}>{station?.name}</li>
-      <TrafficLightStatus station={station} lineId={lineId} />
+      <TrafficLightStatus
+        station={station}
+        lineId={lineId}
+        status={station.status}
+      />
     </div>
   );
 }

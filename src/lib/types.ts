@@ -5,8 +5,11 @@ export interface Line {
     stations : Station["id"][]
 }
 
+export type StationStatus = "untouched" | "through" | "visited"
+
 export interface Station {
     id: string,
     name: string
     lines : Line["id"][]
+    status: StationStatus
 }
