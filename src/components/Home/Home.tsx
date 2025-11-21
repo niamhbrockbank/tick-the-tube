@@ -8,7 +8,7 @@ export default function Home() {
       <h1 className={styles.title}>Tick the Tube</h1>
       <ul>
         {LINES.map((line) => (
-          <Line line={line} />
+          <Line line={line} key={line.id} />
         ))}
       </ul>
     </>
