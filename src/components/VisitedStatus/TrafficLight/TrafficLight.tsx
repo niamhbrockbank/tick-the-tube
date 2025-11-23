@@ -1,4 +1,4 @@
-import type { StationStatus } from "../../../lib/types";
+import type { StationStatus } from "../../../store/HomeStore";
 import * as styles from "../VisitedStatus.css";
 
 interface Props {

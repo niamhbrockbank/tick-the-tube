@@ -1,4 +1,4 @@
-import type { Line } from "./types";
+import type { Line } from "../store/HomeStore";
 
 export const LINES :  Line[] = [
     {

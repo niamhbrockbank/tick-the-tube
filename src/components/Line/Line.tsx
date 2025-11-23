@@ -1,13 +1,15 @@
-import { STATIONS } from "../../lib/stations";
-import type { Line } from "../../lib/types";
-import Station from "../Station/Station";
+import { useShallow } from "zustand/shallow";
+import { useHomeStore, type Line } from "../../store/HomeStore";
 import * as styles from "./Line.css";
+import Station from "../Station/Station";
 
 interface Props {
   line: Line;
 }
 
 export default function Line({ line }: Props) {
+  const [stations] = useHomeStore(useShallow((s) => [s.stations]));
+
   return (
     <div className={styles.line}>
       <li
@@ -21,11 +23,11 @@ export default function Line({ line }: Props) {
       </li>
       <ul>
         {line.stations.map((stationId) => {
-          const shownStation = STATIONS.find(
-            (station) => station.id === stationId
-          );
+          const shownStation = stations.find((st) => st.id === stationId);
           return (
-            shownStation && <Station station={shownStation} lineId={line.id} />
+            shownStation && (
+              <Station station={shownStation} key={shownStation.id} lineId={line.id}/>
+            )
           );
         })}
       </ul>

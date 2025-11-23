@@ -1,17 +1,16 @@
-import { useState } from "react";
-import type { Station, StationStatus } from "../../lib/types";
+import { useShallow } from "zustand/shallow";
+import { type Line, type Station } from "../../store/HomeStore";
+import { useUserStore, setStationStatus } from "../../store/userStore";
 import TrafficLight from "./TrafficLight/TrafficLight";
 
 interface Props {
   station: Station;
-  lineId: string;
-  status: StationStatus;
+  lineId: Line["id"];
 }
 
-export default function VisitedStatus({ station, lineId, status }: Props) {
-  // TODO: Get stations across multiple lines to show the same status
-  const [controlledStatus, setControlledStatus] = useState(status);
+export default function VisitedStatus({ station, lineId }: Props) {
   const name = `${lineId}-${station.id}-status`;
+  const [stationStatus] = useUserStore(useShallow((s) => [s[station.id]]));
 
   return (
     <>
@@ -19,20 +18,20 @@ export default function VisitedStatus({ station, lineId, status }: Props) {
         <TrafficLight
           light="untouched"
           name={name}
-          handleChange={() => setControlledStatus("untouched")}
-          status={controlledStatus}
+          handleChange={() => setStationStatus(station.id, "untouched")}
+          status={stationStatus}
         />
         <TrafficLight
           light="through"
           name={name}
-          handleChange={() => setControlledStatus("through")}
-          status={controlledStatus}
+          handleChange={() => setStationStatus(station.id, "through")}
+          status={stationStatus}
         />
         <TrafficLight
           light="visited"
           name={name}
-          handleChange={() => setControlledStatus("visited")}
-          status={controlledStatus}
+          handleChange={() => setStationStatus(station.id, "visited")}
+          status={stationStatus}
         />
       </div>
     </>
