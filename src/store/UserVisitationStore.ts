@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import type { Station } from "./HomeStore"
+import { type Station } from "./HomeStore"
 import { INITIAL_STATION_STATUS } from "../lib/stations"
 
 export type StationStatus = "untouched" | "through" | "visited"
@@ -20,3 +20,4 @@ export function setStationStatus(stationId : string, status: StationStatus) {
     useUserVisitationStore.setState(() => {
         return  {[stationId] : status}
     })}
+
