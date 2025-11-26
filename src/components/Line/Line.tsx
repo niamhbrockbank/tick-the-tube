@@ -4,6 +4,7 @@ import * as styles from "./Line.css";
 import Station from "../Station/Station";
 import { useUserVisitationStore } from "../../store/UserVisitationStore";
 import { countStationStatus } from "./utils/countStationStatus";
+import { useState } from "react";
 
 interface Props {
   line: Line;
@@ -16,6 +17,7 @@ export default function Line({ line }: Props) {
       return [s];
     })
   );
+  const [stationsShown, setStationsShown] = useState(false);
   const { untouched, through, visited } = countStationStatus(
     line.id,
     stations,
@@ -37,14 +39,22 @@ export default function Line({ line }: Props) {
           untouched:
           {untouched} -- through:{through} -- visited:{visited}
         </span>
+        <button
+          className={styles.showButton}
+          onClick={() => setStationsShown(!stationsShown)}
+        >
+          {stationsShown ? "Hide" : "Show"}
+        </button>
       </li>
-      <ul>
-        {stations.map((station) => {
-          if (station.lines.includes(line.id)) {
-            return <Station station={station} key={station.id} />;
-          }
-        })}
-      </ul>
+      {stationsShown && (
+        <ul>
+          {stations.map((station) => {
+            if (station.lines.includes(line.id)) {
+              return <Station station={station} key={station.id} />;
+            }
+          })}
+        </ul>
+      )}
     </div>
   );
 }

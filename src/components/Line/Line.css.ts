@@ -10,3 +10,9 @@ export const line = style([borderRadius, {
 }])
 
 export const lineName = style({})
+
+export const showButton = style({
+    backgroundColor: 'whitesmoke',
+    border: '1px solid black',
+    margin: "8px"
+})
