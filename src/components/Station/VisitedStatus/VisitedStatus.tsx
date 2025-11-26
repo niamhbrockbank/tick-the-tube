@@ -1,5 +1,5 @@
 import { useShallow } from "zustand/shallow";
-import { type Station } from "../../store/HomeStore";
+import { type Station } from "../../../store/HomeStore";
 import * as styles from "./VisitedStatus.css";
 
 import TrafficLight from "./TrafficLight/TrafficLight";
@@ -7,7 +7,7 @@ import {
   setStationStatus,
   useUserVisitationStore,
   type UserStore,
-} from "../../store/UserVisitationStore";
+} from "../../../store/UserVisitationStore";
 
 interface Props {
   station: Station;
