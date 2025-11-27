@@ -1,4 +1,4 @@
-import type { StationStatus } from "../../../../store/UserVisitationStore";
+import type { StationStatus } from "../../../../../store/UserVisitationStore";
 import * as styles from "./StatusRoundel.css";
 
 interface Props {

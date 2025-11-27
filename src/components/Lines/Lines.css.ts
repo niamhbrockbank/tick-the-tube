@@ -2,7 +2,8 @@ import { style } from "@vanilla-extract/css";
 import { borderRadius } from "../../index.css";
 
 export const lineSection = style({
-    padding: "0px"
+    padding: "0px",
+    margin: "auto"
 })
 
 export const line = style([borderRadius, {

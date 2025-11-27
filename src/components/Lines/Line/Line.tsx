@@ -1,10 +1,10 @@
 import { useShallow } from "zustand/shallow";
 import { useHomeStore, type Line } from "../../../store/HomeStore";
 import * as styles from "../Lines.css";
-import Station from "../../Station/Station";
 import { useUserVisitationStore } from "../../../store/UserVisitationStore";
 import { countLineStatus } from "./utils/countLineStatus";
 import { useState } from "react";
+import Stations from "../../Stations/Stations";
 
 interface Props {
   line: Line;
@@ -46,15 +46,7 @@ export default function Line({ line }: Props) {
           {stationsShown ? "Hide" : "Show"}
         </button>
       </li>
-      {stationsShown && (
-        <ul>
-          {stations.map((station) => {
-            if (station.lines.includes(line.id)) {
-              return <Station station={station} key={station.id} />;
-            }
-          })}
-        </ul>
-      )}
+      {stationsShown && <Stations lineId={line.id} stations={stations} />}
     </div>
   );
 }

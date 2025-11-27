@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { borderRadius } from "../../index.css";
+import { borderRadius } from "../../../index.css";
 
 export const station = style([borderRadius, {
     listStyleType: 'none',
