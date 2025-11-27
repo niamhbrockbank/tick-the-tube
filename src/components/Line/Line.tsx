@@ -3,7 +3,7 @@ import { useHomeStore, type Line } from "../../store/HomeStore";
 import * as styles from "./Line.css";
 import Station from "../Station/Station";
 import { useUserVisitationStore } from "../../store/UserVisitationStore";
-import { countStationStatus } from "./utils/countStationStatus";
+import { countLineStatus } from "./utils/countLineStatus";
 import { useState } from "react";
 
 interface Props {
@@ -18,7 +18,7 @@ export default function Line({ line }: Props) {
     })
   );
   const [stationsShown, setStationsShown] = useState(false);
-  const { untouched, through, visited } = countStationStatus(
+  const { untouched, through, visited } = countLineStatus(
     line.id,
     stations,
     stationStatuses
