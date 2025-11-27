@@ -1,6 +1,6 @@
 import { LINES } from "../../lib/lines";
-import Line from "./Line";
-import * as styles from "./Line.css";
+import * as styles from "./Lines.css";
+import Line from "./Line/Line";
 
 export default function Lines() {
   return (

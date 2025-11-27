@@ -1,4 +1,4 @@
-import Lines from "../Line/Lines";
+import Lines from "../Lines/Lines";
 import Statistics from "../Statistics/Statistics";
 import * as styles from "./Home.css";
 

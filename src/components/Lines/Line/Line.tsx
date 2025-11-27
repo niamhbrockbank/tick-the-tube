@@ -1,8 +1,8 @@
 import { useShallow } from "zustand/shallow";
-import { useHomeStore, type Line } from "../../store/HomeStore";
-import * as styles from "./Line.css";
-import Station from "../Station/Station";
-import { useUserVisitationStore } from "../../store/UserVisitationStore";
+import { useHomeStore, type Line } from "../../../store/HomeStore";
+import * as styles from "../Lines.css";
+import Station from "../../Station/Station";
+import { useUserVisitationStore } from "../../../store/UserVisitationStore";
 import { countLineStatus } from "./utils/countLineStatus";
 import { useState } from "react";
 
