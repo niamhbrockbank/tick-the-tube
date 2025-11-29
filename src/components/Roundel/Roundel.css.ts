@@ -33,14 +33,6 @@ const base = style({
 
 export type RoundelColour = "green" | "red" | "base" | "amber" | LineColour
 
-/*
-TODO:
-const roundelVariants = RoundelColour -> map
-    const output = {}
-    for each colourOption in union
-    add to output => colourOption: [base, borderColour: colourOption]
-*/
-
 export const roundel = styleVariants({
     base: [base],
     red: [base, {borderColor: "red",}],
