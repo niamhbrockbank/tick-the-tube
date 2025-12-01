@@ -55,7 +55,18 @@ export const roundelButton = styleVariants({
     base: [baseButton],
     red: [baseButton, {   borderColor: "red",}],
     amber: [baseButton, {     borderColor: "orange",}],
-    green : [baseButton, {     borderColor: "green",}]
+    green : [baseButton, {     borderColor: "green",}],
+    metropolitan: [baseButton, {borderColor: metropolitan }],
+    jubilee: [baseButton, {borderColor: jubilee }],
+    bakerloo: [baseButton, {borderColor: bakerloo }],
+    central: [baseButton, {borderColor: central }],
+    circle: [baseButton, {borderColor: circle }],
+    district: [baseButton, {borderColor: district }],
+    ['hammersmith-city']: [baseButton, {borderColor: hammersmithCity }],
+    northern: [baseButton, {borderColor: northern}],
+    piccadilly: [baseButton, {borderColor: piccadilly }],
+    victoria: [baseButton, {borderColor: victoria }],
+    ['waterloo-city']: [baseButton, {borderColor: waterlooCity }],
 })
 
 export const label = style({

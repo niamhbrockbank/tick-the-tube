@@ -42,9 +42,9 @@ export default function Line({ line }: Props) {
           {stationsShown ? "Hide" : "Show"}
         </button>
         <div className={styles.lineSummary}>
-          <Roundel label={`${untouched}`} colour={line.id} />
-          <Roundel label={`${through}`} colour={line.id} />
-          <Roundel label={`${visited}`} colour={line.id} />
+          <Roundel label={`${untouched}`} colour={line.id} title="untouched" />
+          <Roundel label={`${through}`} colour={line.id} title="through" />
+          <Roundel label={`${visited}`} colour={line.id} title="visited" />
         </div>
       </li>
       {stationsShown && <Stations lineId={line.id} stations={stations} />}

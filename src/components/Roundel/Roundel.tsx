@@ -3,6 +3,7 @@ import * as styles from "./Roundel.css";
 interface Props {
   label: string;
   colour?: styles.RoundelColour;
+  title?: string;
   button?: boolean;
   handleClick?: () => void;
 }
@@ -10,6 +11,7 @@ interface Props {
 export default function Roundel({
   label,
   colour,
+  title = label,
   button = false,
   handleClick,
   ...props
@@ -29,7 +31,7 @@ export default function Roundel({
     return (
       <div
         className={styles.roundel[colour || "base"]}
-        title={label}
+        title={title}
         {...props}
       >
         <span className={styles.label}>{label}</span>
