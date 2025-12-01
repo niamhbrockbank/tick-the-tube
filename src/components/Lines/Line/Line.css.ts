@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import {  style } from "@vanilla-extract/css";
 import { borderRadius } from "../../../index.css";
 
 export const line = style([borderRadius, {
@@ -9,7 +9,7 @@ export const line = style([borderRadius, {
     boxShadow: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
 }])
 
-export const lineName = style({
+export const lineTitleRow = style({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -17,10 +17,19 @@ export const lineName = style({
     color: "#213547",
 })
 
+export const lineTitleRowLeft = style({
+    display: "flex",
+    flexDirection: "column",
+    fontSize: "1.5rem"
+})
+
 export const showButton = style({
-    backgroundColor: 'whitesmoke',
-    border: '1px solid black',
-    margin: "8px"
+    borderBottom: "1px solid transparent",
+    fontSize: "0.8rem",
+    width: "fit-content",
+    ':hover' : {
+        borderBottom: "1px solid"
+    }
 })
 
 export const lineSummary = style({

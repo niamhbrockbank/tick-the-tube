@@ -26,21 +26,23 @@ export default function Line({ line }: Props) {
   );
 
   return (
-    <div className={styles.line}>
-      <li
-        key={line.id}
-        className={styles.lineName}
-        style={{
-          borderBottom: `8px solid ${line.colour}`,
-        }}
-      >
-        {line.name}
-        <button
-          className={styles.showButton}
-          onClick={() => setStationsShown(!stationsShown)}
-        >
-          {stationsShown ? "Hide" : "Show"}
-        </button>
+    <div
+      className={styles.line}
+      style={{
+        borderBottom: `8px solid ${line.colour}`,
+      }}
+    >
+      <li key={line.id} className={styles.lineTitleRow}>
+        <span className={styles.lineTitleRowLeft}>
+          {line.name}
+          <a
+            className={styles.showButton}
+            onClick={() => setStationsShown(!stationsShown)}
+          >
+            {stationsShown ? "Hide" : "Expand"}
+          </a>
+        </span>
+
         <div className={styles.lineSummary}>
           <Roundel label={`${untouched}`} colour={line.id} title="untouched" />
           <Roundel label={`${through}`} colour={line.id} title="through" />
@@ -48,6 +50,14 @@ export default function Line({ line }: Props) {
         </div>
       </li>
       {stationsShown && <Stations lineId={line.id} stations={stations} />}
+      {stationsShown && (
+        <a
+          className={styles.showButton}
+          onClick={() => setStationsShown(!stationsShown)}
+        >
+          {stationsShown ? "Hide" : "Expand"}
+        </a>
+      )}
     </div>
   );
 }
