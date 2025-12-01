@@ -1,10 +1,11 @@
 import { useShallow } from "zustand/shallow";
 import { useHomeStore, type Line } from "../../../store/HomeStore";
-import * as styles from "../Lines.css";
-import Station from "../../Station/Station";
+import * as styles from "./Line.css";
 import { useUserVisitationStore } from "../../../store/UserVisitationStore";
 import { countLineStatus } from "./utils/countLineStatus";
 import { useState } from "react";
+import Stations from "../../Stations/Stations";
+import Roundel from "../../Roundel/Roundel";
 
 interface Props {
   line: Line;
@@ -25,35 +26,37 @@ export default function Line({ line }: Props) {
   );
 
   return (
-    <div className={styles.line}>
-      <li
-        key={line.id}
-        className={styles.lineName}
-        style={{
-          borderBottom: `8px solid ${line.colour}`,
-        }}
-      >
-        {line.name}
-        <span>
-          {" "}
-          untouched:
-          {untouched} -- through:{through} -- visited:{visited}
+    <div
+      className={styles.line}
+      style={{
+        borderBottom: `8px solid ${line.colour}`,
+      }}
+    >
+      <li key={line.id} className={styles.lineTitleRow}>
+        <span className={styles.lineTitleRowLeft}>
+          {line.name}
+          <a
+            className={styles.showButton}
+            onClick={() => setStationsShown(!stationsShown)}
+          >
+            {stationsShown ? "Hide" : "Expand"}
+          </a>
         </span>
-        <button
+
+        <div className={styles.lineSummary}>
+          <Roundel label={`${untouched}`} colour={line.id} title="untouched" />
+          <Roundel label={`${through}`} colour={line.id} title="through" />
+          <Roundel label={`${visited}`} colour={line.id} title="visited" />
+        </div>
+      </li>
+      {stationsShown && <Stations lineId={line.id} stations={stations} />}
+      {stationsShown && (
+        <a
           className={styles.showButton}
           onClick={() => setStationsShown(!stationsShown)}
         >
-          {stationsShown ? "Hide" : "Show"}
-        </button>
-      </li>
-      {stationsShown && (
-        <ul>
-          {stations.map((station) => {
-            if (station.lines.includes(line.id)) {
-              return <Station station={station} key={station.id} />;
-            }
-          })}
-        </ul>
+          {stationsShown ? "Hide" : "Expand"}
+        </a>
       )}
     </div>
   );
