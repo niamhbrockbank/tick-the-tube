@@ -3,8 +3,7 @@ import { borderRadius } from "../../../index.css";
 
 export const line = style([borderRadius, {
     listStyleType : 'none',
-    width: '80vw',
-    margin: '10px auto',
+    margin: '20px auto',
     padding: '16px 24px',
     border: '1px solid black',
 }])
