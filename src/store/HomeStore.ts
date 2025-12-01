@@ -4,7 +4,7 @@ import { STATIONS } from '../lib/stations'
 export interface Line {
     id: LineColour,
     name: string,
-    colour: LineColour,
+    colour: string,
 }
 
 //TODO: Fix LineColour type so its actually just the values of line.id not string
