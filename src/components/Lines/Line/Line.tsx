@@ -26,12 +26,7 @@ export default function Line({ line }: Props) {
   );
 
   return (
-    <div
-      className={styles.line}
-      style={{
-        borderBottom: `8px solid ${line.colour}`,
-      }}
-    >
+    <div className={styles.line[line.id]}>
       <li key={line.id} className={styles.lineTitleRow}>
         <span className={styles.lineTitleRowLeft}>
           {line.name}
