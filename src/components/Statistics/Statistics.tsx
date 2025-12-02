@@ -1,6 +1,6 @@
 import { useShallow } from "zustand/shallow";
 import * as styles from "./Statistics.css";
-import countTotalStatus from "./utils/countTotalStatus";
+import countStatusTotals from "./utils/countStatusTotals";
 import { useUserVisitationStore } from "../../store/UserVisitationStore";
 import { useHomeStore } from "../../store/HomeStore";
 import StatisticsCard from "./StatisticsCard/StatisticsCard";
@@ -9,7 +9,7 @@ export default function Statistics() {
   const [stationStat] = useUserVisitationStore(useShallow((s) => [s]));
   const [stations] = useHomeStore(useShallow((s) => [s.stations]));
 
-  const statusTotals = countTotalStatus(stationStat);
+  const statusTotals = countStatusTotals(stationStat);
 
   return (
     <section className={styles.statsSection}>
