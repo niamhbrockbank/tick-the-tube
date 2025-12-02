@@ -47,3 +47,5 @@ export const LINES :  Line[] = [
         name: 'Waterloo & City',
     },
 ]
+
+export const INITIAL_LINE_STATUS = LINES.reduce((prev, cur) => ({...prev, [cur.id] : {untouched: 0, through: 0, visited: 0}}), {})

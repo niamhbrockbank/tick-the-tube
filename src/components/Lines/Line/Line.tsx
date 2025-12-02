@@ -15,7 +15,7 @@ export default function Line({ line }: Props) {
   const [stations] = useHomeStore(useShallow((s) => [s.stations]));
   const [stationStatuses] = useUserVisitationStore(
     useShallow((s) => {
-      return [s];
+      return [s.stations];
     })
   );
   const [stationsShown, setStationsShown] = useState(false);

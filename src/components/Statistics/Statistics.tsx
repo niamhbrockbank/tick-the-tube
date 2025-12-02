@@ -6,7 +6,7 @@ import { useHomeStore } from "../../store/HomeStore";
 import StatisticsCard from "./StatisticsCard/StatisticsCard";
 
 export default function Statistics() {
-  const [stationStat] = useUserVisitationStore(useShallow((s) => [s]));
+  const [stationStat] = useUserVisitationStore(useShallow((s) => [s.stations]));
   const [stations] = useHomeStore(useShallow((s) => [s.stations]));
 
   const statusTotals = countStatusTotals(stationStat);

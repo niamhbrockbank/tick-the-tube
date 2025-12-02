@@ -1,16 +1,23 @@
 import { create } from "zustand"
-import { type Station } from "./HomeStore"
+import { type LineId, type Station } from "./HomeStore"
 import { INITIAL_STATION_STATUS } from "../lib/stations"
+import { INITIAL_LINE_STATUS } from "../lib/lines"
 
 export type StationStatus = "untouched" | "through" | "visited"
 
 export type StatusCount = { [T in StationStatus]: number}
+
+export interface UserStationStatus { [stationId : Station["id"]]  : StationStatus} 
+type UserLineStatus = {[T in LineId]? : StatusCount}
+
 export interface UserStore {
-    [stationId : Station["id"]]  : StationStatus
+    stations: UserStationStatus
+    lines: UserLineStatus
 }
 
 const initialUserVisitationStore = {
-    ...INITIAL_STATION_STATUS
+    stations : {...INITIAL_STATION_STATUS},
+    lines: {...INITIAL_LINE_STATUS}
 }
 
 export const useUserVisitationStore = create<UserStore>(() => ({
@@ -18,7 +25,7 @@ export const useUserVisitationStore = create<UserStore>(() => ({
 }))
 
 export function setStationStatus(stationId : string, status: StationStatus) {
-    useUserVisitationStore.setState(() => {
-        return  {[stationId] : status}
+    useUserVisitationStore.setState((prevState) => {
+        return  {stations: {...prevState.stations, [stationId] : status}}
     })}
 
