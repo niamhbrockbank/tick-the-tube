@@ -4,7 +4,6 @@ import { STATIONS } from '../lib/stations'
 export interface Line {
     id: LineId,
     name: string,
-    colour: string,
 }
 export type LineId = 'metropolitan' | 'jubilee' | 'bakerloo' | 'central' | 'circle' | 'district' | 'hammersmith-city' | 'northern'| 'piccadilly' | 'victoria' | 'waterloo-city'
 
