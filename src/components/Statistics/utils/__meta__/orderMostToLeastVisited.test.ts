@@ -7,7 +7,9 @@ test("orders lines into most to least visited", () => {
     'piccadilly' : {untouched: 9, visited: 99, through: 23}
     }
 
-    const order = ['piccadilly', 'metropolitan', 'jubilee']
+    const order = [{id: 'piccadilly', status: {untouched: 9, visited: 99, through: 23}},{id:'metropolitan', status: {untouched: 16, visited: 6, through: 12}}, 
+        {id: 'jubilee', status: {untouched : 6, visited: 5, through: 10}},
+    ]
 
     expect(orderMostToLeastVisited(lineStatuses)).toStrictEqual(order)
 })
