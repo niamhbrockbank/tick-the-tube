@@ -1,4 +1,4 @@
-import type { Line } from "../store/HomeStore";
+import type { Line, LineId } from "../store/HomeStore";
 import { STATIONS } from "./stations";
 
 export const LINES :  Line[] = [
@@ -49,7 +49,8 @@ export const LINES :  Line[] = [
     },
 ]
 
-const NUMBER_STATIONS_ON_LINE = LINES.reduce<Record<LineId, number>>((prev, cur) => ({...prev, [cur.id] : 0}), {})
+type LineStationTally = Record<LineId, number>
+const NUMBER_STATIONS_ON_LINE = LINES.reduce<LineStationTally>((prev, cur) => ({...prev, [cur.id] : 0}), {} as LineStationTally)
 
 STATIONS.forEach((station) => {
     for (const line of station.lines){
